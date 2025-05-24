@@ -1,3 +1,5 @@
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 let currentTheme = 'light';
 let sortDirection = ['desc', 'desc', 'desc'];
 
@@ -148,6 +150,5 @@ document.addEventListener('DOMContentLoaded', function() {
         row.style.display = '';
     }
     
-    // Sort by cheapest DC charging by default
     sortTable(0);
 });

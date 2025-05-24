@@ -303,15 +303,29 @@ tr:hover {
 }
 
 .update-info {
+    margin-top: 2rem;
+    text-align: center;
+    padding: 1rem;
     background: var(--bg-secondary);
     border-radius: 0.5rem;
-    padding: 1rem;
-    text-align: center;
 }
 
 .update-text {
     color: var(--text-secondary);
     font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.update-text a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.update-text a:hover {
+    color: var(--price-secondary);
+    text-decoration: underline;
 }
 
 /* Responsive Design */

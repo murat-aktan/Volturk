@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOLTURK - Türkiye Elektrikli Araç Şarj Ağı Fiyatları</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img class="logo" id="logo-img" src="images/logo-light.png" alt="VOLTURK Logo">
+                </div>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <svg class="theme-icon" id="theme-icon" viewBox="0 0 24 24">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                    <span id="theme-text">Karanlık Mod</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="header-search-container">
+                <h1>Türkiye Elektrikli Araç Şarj Ağı Fiyatları</h1>
+                <div class="search-container">
+                    <input type="text" class="search-box" id="searchInput" placeholder="Şarj ağı ara..." onkeyup="searchNetworks()">
+                </div>
+            </div>
+
+            <div class="table-container">
+                <div class="table-wrapper">
+                    <table id="pricingTable">
+                        <thead>
+                            <tr>
+                                <th onclick="sortTable(0)">Şarj Ağı <span class="sort-icon">↕</span></th>
+                                <th onclick="sortTable(1)">AC Şarj <span class="sort-icon">↕</span></th>
+                                <th onclick="sortTable(2)">DC Şarj <span class="sort-icon">↕</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a href="https://www.aksasarj.com.tr/tr/ucretler" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/aksa.svg" alt="Aksa Logo">
+                                        <span class="network-name">Aksa</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺8.99</td>
+                                <td>
+                                    <div class="price-container">
+                                        <div class="price-item"><strong>₺9.99</strong> (<100kW)</div>
+                                        <div class="price-item"><strong>₺10.99</strong> (100kW+)</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://astorsarj.com.tr/#priceweb" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/astor_logo.png" alt="Astor Logo">
+                                        <span class="network-name">Astor</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺7.99</td>
+                                <td>
+                                    <div class="price-container">
+                                        <div class="price-item"><strong>₺10.99</strong></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://beefull.com/tarifeler/elektrikli-arac-tarifesi/" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/beefull-logo.png" alt="Beefull Logo">
+                                        <span class="network-name">Beefull</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺8.99</td>
+                                <td>
+                                    <div class="price-container">
+                                        <div class="price-item"><strong>₺10.99</strong> (<80kW)</div>
+                                        <div class="price-item"><strong>₺12.99</strong> (80kW+)</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://www.ecoboxsarj.com/tarifeler" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/ecobox.jfif" alt="Ecobox Logo">
+                                        <span class="network-name">Ecobox</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺8.00</td>
+                                <td class="price">₺10.50</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://www.enyakit.com.tr/ucretlendirme" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/enyakit_logo.png" alt="Enyakit Logo">
+                                        <span class="network-name">Enyakıt</span>
+                                    </a>
+                                </td>
+                                <td class="price">-</td>
+                                <td class="price">₺11.80</td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://www.petrolofisi.com.tr/urun-ve-hizmetler/e-power" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/epower.png" alt="Epower Logo">
+                                        <span class="network-name">E-Power</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺7.50</td>
+                                <td class="price">₺9.50</td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://esarj.com" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/esarj_logo.png" alt="Eşarj Logo">
+                                        <span class="network-name">Eşarj</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺8.90</td>
+                                <td>
+                                    <div class="price-container">
+                                        <div class="price-item"><strong>₺10.90</strong> (<90kW>)</div>
+                                        <div class="price-item"><strong>₺12.90</strong>  (90kW+>)</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://www.efish.com.tr/tr/fiyatlandirma/" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/efish.png" alt="Efish Logo">
+                                        <span class="network-name">Efish</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺8.16</td>
+                                <td class="price">₺9.90</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://geldol.com/tarifelerimiz/" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/geldol.png" alt="Geldol Logo">
+                                        <span class="network-name">Geldol</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺8.59</td>
+                                <td class="price">₺10.99</td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://gioev.com/fiyatlandirma" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/gio_logo.png" alt="Gio Logo">
+                                        <span class="network-name">Gio</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺8.99</td>
+                                <td class="price">₺11.77</td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://lumicle.com.tr" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/lumicle_logo.svg" alt="Lumicle Logo">
+                                        <span class="network-name">Lumicle</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺8.49</td>
+                                <td class="price">₺10.79</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://www.mig-go.com/#ucretlendirme" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/miggo_logo.svg" alt="Miggo Logo">
+                                        <span class="network-name">Miggo</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺7.50</td>
+                                <td class="price">₺8.90</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://oncharge.com.tr/fiyatlar" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/oncharge_logo.svg" alt="OnCharge Logo">
+                                        <span class="network-name">OnCharge</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺8.99</td>
+                                <td class="price">₺10.99</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://onizsarj.com/fiyat-tarifesi/" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/oniz.png" alt="Oniz Logo">
+                                        <span class="network-name">Öniz</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺8.28</td>
+                                <td class="price">₺9.98</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://www.onlifecharge.com/elektrikli-arac-sarj-fiyatlari" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/onlife.png" alt="Onlife Logo">
+                                        <span class="network-name">Onlife</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺6.49</td>
+                                <td>
+                                    <div class="price-container">
+                                        <div class="price-item"><strong>₺9.49</strong> (<60kW)</div>
+                                        <div class="price-item"><strong>₺10.49</strong> (60kW+)</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://oto-jet.com.tr/fiyatlarimiz.html" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/otojet.svg" alt="Otojet Logo">
+                                        <span class="network-name">Otojet</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺9.49</td>
+                                <td class="price">₺11.99</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://ovolt.com.tr/tarifeler/" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/ovolt_logo.png" alt="Ovolt Logo">
+                                        <span class="network-name">Ovolt</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺8.49</td>
+                                <td>
+                                    <div class="price-container">
+                                        <div class="price-item"><strong>₺9.49</strong> (<60kW)</div>
+                                        <div class="price-item"><strong>₺10.99</strong> (60kW+)</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://sarjon.com.tr/fiyatlar/" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/sarjon_logo.png" alt="Sarjon Logo">
+                                        <span class="network-name">Sarjon</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺8.50</td>
+                                <td class="price">₺10.50</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://www.sharz.net/#tarrifs" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/sharz.svg" alt="Sharz Logo">
+                                        <span class="network-name">Sharz</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺7.99</td>
+                                <td>
+                                    <div class="price-container">
+                                        <div class="price-item"><strong>₺8.99</strong> (<60kW)</div>
+                                        <div class="price-item"><strong>₺9.99</strong> (60kW+)</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://www.tesla.com/tr_tr/findus" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/tesla_logo.svg" alt="Tesla Logo">
+                                        <span class="network-name">Tesla Supercharger</span>
+                                    </a>
+                                </td>
+                                <td class="price">-</td>
+                                <td>
+                                    <div class="price-container">
+                                        <div class="price-item"><strong>₺7.10</strong> (Tesla araçlar)</div>
+                                        <div class="price-item"><strong>₺8.80</strong> (Diğer araçlar)</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://www.trugo.com.tr/price" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/trugo_logo.svg" alt="Trugo Logo">
+                                        <span class="network-name">Trugo</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺8.49</td>
+                                <td>
+                                    <div class="price-container">
+                                        <div class="price-item"><strong>₺10.60</strong> (<150kW>)</div>
+                                        <div class="price-item"><strong>₺11.82</strong> (150kW+)</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://tuncmatikcharge.com/fiyatlar/" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/tuncmatik_logo.png" alt="Tunçmatik Logo">
+                                        <span class="network-name">Tunçmatik</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺8.99</td>
+                                <td class="price">₺11.50</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://www.voltrun.com/voltrun-uyelik-tarife/" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/voltrun_logo.jfif" alt="Voltrun Logo">
+                                        <span class="network-name">Voltrun</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺9.29</td>
+                                <td>
+                                    <div class="price-container">
+                                        <div class="price-item"><strong>₺10.49</strong> (<100kW)</div>
+                                        <div class="price-item"><strong>₺12.49</strong> (100kW+)</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://www.watmobilite.com/cozumler/kamusal-alanlar#guncel-fiyat-ve-tarifeler" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/wat_logo.svg" alt="Wat Logo">
+                                        <span class="network-name">Wat</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺8.89</td>
+                                <td class="price">₺10.89</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://zes.net/fiyatlar-tr" target="_blank" class="network-link">
+                                        <img class="network-logo" src="images/zes_logo.svg" alt="ZES Logo">
+                                        <span class="network-name">ZES</span>
+                                    </a>
+                                </td>
+                                <td class="price">₺8.99</td>
+                                <td>
+                                    <div class="price-container">
+                                        <div class="price-item"><strong>₺10.99</strong> (<180kW)</div>
+                                        <div class="price-item"><strong>₺12.99</strong> (180kW+)</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="no-results" id="noResults" style="display: none;">
+                        Aradığınız kriterlere uygun şarj ağı bulunamadı.
+                    </div>
+                </div>
+            </div>
+
+            <div class="update-info">
+                <p class="update-text">
+                    Son güncelleme: Mayıs 2025 • Burada gösterilen fiyatlar bilgilendirme amaçlıdır ve değişkenlik gösterebilir. Güncel fiyatlar için ilgili şarj ağının resmi sitesini kontrol ediniz.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

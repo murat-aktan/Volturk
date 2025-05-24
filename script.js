@@ -1,5 +1,3 @@
-import { SpeedInsights } from "@vercel/speed-insights/next"
-
 let currentTheme = 'light';
 let sortDirection = ['desc', 'desc', 'desc'];
 

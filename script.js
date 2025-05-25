@@ -7,12 +7,11 @@ function sortTable(columnIndex) {
     const rows = Array.from(tbody.getElementsByTagName('tr'));
     const headers = table.getElementsByTagName('th');
     
-    // Clear previous sort indicators
     for (let header of headers) {
         header.classList.remove('sorted');
-        const icon = header.querySelector('.sort-icon');
+        const icon = header.querySelector('.sort-icon svg');
         if (icon) {
-            icon.textContent = '↕';
+            icon.innerHTML = '<path d="M7 10l5-5 5 5H7zM7 14l5 5 5-5H7z"/>';
         }
     }
     
@@ -75,9 +74,13 @@ function sortTable(columnIndex) {
     
     // Update sort indicator
     headers[columnIndex].classList.add('sorted');
-    const icon = headers[columnIndex].querySelector('.sort-icon');
+    const icon = headers[columnIndex].querySelector('.sort-icon svg');
     if (icon) {
-        icon.textContent = sortDirection[columnIndex] === 'desc' ? '↓' : '↑';
+        if (sortDirection[columnIndex] === 'desc') {
+            icon.innerHTML = '<path d="M7 14l5 5 5-5H7z"/>';
+        } else {
+            icon.innerHTML = '<path d="M7 10l5-5 5 5H7z"/>';
+        }
     }
     
     // Reinsert sorted rows
